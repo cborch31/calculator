@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#calcContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    height: 60vh;
+    width: 60vh;
+    padding: 20px;
+}
+
+.numbers { /* how can I reference each number individually to change their style/size? */
+    display: flex;
+    flex: 1 0 1;
+    border: solid;
+    border-color: black;
+    margin: 0;
+    height: 100px;
+    width: 100px;
+}
+
