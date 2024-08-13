@@ -14,20 +14,46 @@
 #calcContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
     width: 60vh;
-    padding: 20px;
 }
 
 .numbers { /* how can I reference each number individually to change their style/size? */
     display: flex;
-    flex: 1 0 1;
+    flex-direction: column;
     border: solid;
     border-color: black;
+    padding: 0;
     margin: 0;
     height: 100px;
     width: 100px;
+
 }
 
+.numbers0 {
+    flex-grow: 3;
+    flex-basis: 0;
+}
+
+.numbers1, .numbers2, .numbers3, .numbers4, .numbers5 {
+    flex-grow: 0.25;
+    flex-shrink: 0;
+    flex-basis: 1;
+}
+
+.numbers6, .numbers7, .numbers8, .numbers9, .numbers10 {
+    flex-grow: 0.25;
+    flex-basis: 0;
+}
+
+.numbers11, .numbers12, .numbers13 {
+    flex-grow: 0.25;
+    flex-basis: 0;
+}
+
+.numbers14, .numbers15 {
+    flex-grow: 2;
+}
