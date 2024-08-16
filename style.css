@@ -45,7 +45,7 @@ button {
     font-size: 50px;
 }
 
-.clearBtn {
+#btnClear {
     width: 414px;
     display: flex;
     flex: 1 0 1;
@@ -55,7 +55,7 @@ button {
     font-size: 50px;
 }
 
-.numbers { /* how can I reference each number individually to change their style/size? */
+.button { /* how can I reference each number individually to change their style/size? */
     display: flex;
     flex-direction: column;
     border: solid;
@@ -70,12 +70,12 @@ button {
     font-size: 50px;
 }
 
-.numbers12, .numbers13 {
+#btn0, #btnEqual {
     display: flex;
     flex: 2;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
-.numbers14 {
-    margin-bottom: 4px;
+#btnAdd {
+    margin-bottom: 3px;
 }
