@@ -35,27 +35,24 @@ const operate = function(operator, firstNumber, secondNumber){
     }
 };
 
-let val = "10";
-
-//get a value
-//check if it is an operand
-//check if displayBox has already received an operand
+console.log(typeof(7))
 
 const displayFunction = function(val){
-    if( val === '+' ||
-        val === '-' ||
-        val === '/' ||
-        val === '*'
-    ) { }
-    
-    console.log(displayBox.textContent);
-    // displayBox.textContent += val;
-    // return val;
-};
+    if(displayBox.textContent === '' && val == 0){
+        return;
+        }else if( typeof(val) == 'number' ){
+            displayBox.textContent += val;
+            }else if(typeof(val) !== 'number' && displayBox.textContent !== '') 
+                    {if(displayBox.textContent.includes('-') ||
+                        displayBox.textContent.includes('+') ||
+                        displayBox.textContent.includes('*') ||
+                        displayBox.textContent.includes('/') )
+                        {
+                            return;
+                        } else {displayBox.textContent += val;}
+                    };
+    };
 
-//updating the displayBox
-//get a number
-//add to array
 
 ///////////////////////////////////////////////////////////
 //making DIVs and buttons
@@ -77,11 +74,35 @@ displayBox.classList.add('displayBox');
 display.appendChild(displayBox);
 //displayBox.textContent = ''; //erase later
 
-const btn7 = document.querySelector('#btn7'); //each event listener should do two things: update the display box, send their value to an array
+const btn0 = document.querySelector('#btn0');
+btn0.addEventListener('click', () => {displayFunction(0)});
+const btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', () => {displayFunction(1)});
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', () => {displayFunction(2)});
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', () => {displayFunction(3)});
+const btn4 = document.querySelector('#btn4');
+btn4.addEventListener('click', () => {displayFunction(4)});
+const btn5 = document.querySelector('#btn5');
+btn5.addEventListener('click', () => {displayFunction(5)});
+const btn6 = document.querySelector('#btn6');
+btn6.addEventListener('click', () => {displayFunction(6)});
+const btn7 = document.querySelector('#btn7'); //each event listener should do two things: update the display box, send their value to an array OR should the displayFunction send the item to the array?
 btn7.addEventListener('click', () => {displayFunction(7)});
+const btn8 = document.querySelector('#btn8');
+btn8.addEventListener('click', () => {displayFunction(8)});
+const btn9 = document.querySelector('#btn9');
+btn9.addEventListener('click', () => {displayFunction(9)});
 
 const btnAdd = document.querySelector('#btnAdd');
-btnAdd.addEventListener('click', () => { displayBox.textContent += '+' });
+btnAdd.addEventListener('click', () => {displayFunction('+')});
+const btnDiv = document.querySelector('#btnDiv');
+btnDiv.addEventListener('click', () => {displayFunction('/')});
+const btnMul = document.querySelector('#btnMul');
+btnMul.addEventListener('click', () => {displayFunction('*')});
+const btnMin = document.querySelector('#btnMin');
+btnMin.addEventListener('click', () => {displayFunction('-')});
 
 //////////////////////////////////////////////////////////////
 
@@ -96,5 +117,5 @@ cellList.forEach(numbers => {
     calcArray.push(numbers);
 }) //I think this allows me to target each div to add functions + eventlisteners?
 
-console.log(Array.isArray(calcArray)); 
-console.log(calcArray)
+// console.log(Array.isArray(calcArray)); 
+// console.log(calcArray)
