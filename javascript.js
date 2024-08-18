@@ -23,7 +23,7 @@ const division = function(a,b){
     return divide = a / b;
 };
 
-const operate = function(operator, firstNumber, secondNumber){
+const operate = function(firstNumber, operator, secondNumber){
     if (operator === '+'){
         return addition(firstNumber, secondNumber);
     } else if (operator === '-'){
@@ -35,15 +35,14 @@ const operate = function(operator, firstNumber, secondNumber){
     }
 };
 
-console.log(typeof(7))
-
 const displayFunction = function(val){
     if(displayBox.textContent === '' && val == 0){
         return;
         }else if( typeof(val) == 'number' ){
             displayBox.textContent += val;
+            //add to an array?
             }else if(typeof(val) !== 'number' && displayBox.textContent !== '') 
-                    {if(displayBox.textContent.includes('-') ||
+                    {if(displayBox.textContent.includes('-') || //this doesn't allow for negative numbers
                         displayBox.textContent.includes('+') ||
                         displayBox.textContent.includes('*') ||
                         displayBox.textContent.includes('/') )
@@ -58,6 +57,7 @@ const displayFunction = function(val){
 //making DIVs and buttons
 let array = ['4', '4', '*', '5'];
 let item = array.join('');
+array.splice()
 
 console.log(item);
 
