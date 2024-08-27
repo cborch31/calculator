@@ -54,12 +54,43 @@ const displayFunction = function(val){
 
 
 ///////////////////////////////////////////////////////////
-//making DIVs and buttons
+
 let array = ['4', '4', '*', '5'];
 let item = array.join('');
 array.splice()
 
 console.log(item);
+
+let array2 = [ ];
+let holder = [ ];
+
+const pushArray = function(val){
+    if (array2.length == 0 && val == 0 ||
+        array2.length == 0 && val == '+' ||
+        array2.length == 0 && val == '/' ||
+        array2.length == 0 && val == '*'
+    ) {
+        return 'first condition';
+    } else if (array2.length == 0 && typeof(val) == 'number') {
+        array2.push(val);
+        return 'second condition';
+    } else if (array2.length !== 0) {
+        if ( typeof(array2[array2.length-1]) == 'number' && typeof(val) == 'number') {
+            array2.push(val);
+            holder = [ ];
+            holder.push(array2.join(''));
+            return 'third condition';
+        } else if ( isNaN(val) && isNaN(array2[array2.length-1]) )
+            { 
+                if ( array2[array2.length-1] == '-' && val == '-') {
+
+                }} // here we'd need to check about minus. cannot have more than three.
+            else if (isNaN(val) && val !== '-')
+                { return 'fifth condition' }
+    }
+};
+
+///////////////////////////////////////////////////////////
 
 const calcContainer = document.querySelector('#calcContainer');
 const mainPage = document.querySelector('#mainPage');
