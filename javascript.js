@@ -64,31 +64,73 @@ console.log(item);
 let array2 = [ ];
 let holder = [ ];
 
-const pushArray = function(val){
-    if (array2.length == 0 && val == 0 ||
-        array2.length == 0 && val == '+' ||
-        array2.length == 0 && val == '/' ||
-        array2.length == 0 && val == '*'
-    ) {
-        return 'first condition';
-    } else if (array2.length == 0 && typeof(val) == 'number') {
-        array2.push(val);
-        return 'second condition';
-    } else if (array2.length !== 0) {
-        if ( typeof(array2[array2.length-1]) == 'number' && typeof(val) == 'number') {
-            array2.push(val);
-            holder = [ ];
-            holder.push(array2.join(''));
-            return 'third condition';
-        } else if ( isNaN(val) && isNaN(array2[array2.length-1]) )
-            { 
-                if ( array2[array2.length-1] == '-' && val == '-') {
+// const pushArray = function(val){
+//     if (array2.length == 0 && val == 0 ||
+//         array2.length == 0 && val == '+' ||
+//         array2.length == 0 && val == '/' ||
+//         array2.length == 0 && val == '*'
+//     ) {
+//         return '0, +, /, * will not be added to empty array';
+//     } else if (array2.length == 0 && typeof(val) == 'number') {
+//         array2.push(val);
+//         return 'a number (not zero) is added to empty array';
+//     } else if (array2.length !== 0) {
+//         if ( typeof(array2[array2.length-1]) == 'number' && typeof(val) == 'number') {
+//             array2.push(val);
+//             holder = [ ];
+//             holder.push(array2.join(''));
+//             return 'more numbers are added to the array. And joined in holder variable';
+//         } else if ( isNaN(val) && isNaN(array2[array2.length-1]) )
+//             { 
+//                 if ( array2[array2.length-1] == '-' && val == '-') {
 
-                }} // here we'd need to check about minus. cannot have more than three.
-            else if (isNaN(val) && val !== '-')
-                { return 'fifth condition' }
-    }
+//                 }} // here we'd need to check about minus. cannot have more than three.
+//             else if (isNaN(val) && val !== '-')
+//                 { return 'fifth condition' }
+//     }
+// };
+
+const pushArray = function(val){
+        switch (val){
+            case 0:
+                if(array2.length == 0){
+                    return 'array is empty and val is 0';
+                } else if (array2[array2.length-1] == '/') {
+                    return 'can\'t divide by zero';    
+                    } else { array2.push(val); 
+                            console.log('zero pushed to array');
+                             break;
+                    };
+
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                if (array2.length == 0) {
+                    array2.push(val);
+                    return 'number pushed to empty array';
+                }else if (array2[array2.length-1] == 0){
+                    return 'can\'t add number after a zero';
+                    } else if (typeof(array2[array2.length-1]) =='number') {
+                        array2.push(val);
+                        return 'added number to array. Need to join!' //joining changes a number into a string. Might use Number('3') to convert back to number.
+                        };
+            
+            case '+':
+            case '/':
+            case '*':
+                if (array2.length == 0){
+                    return 'can\'t add operator to empty string!';
+                } //start here next session!
+        }
+
 };
+
 
 ///////////////////////////////////////////////////////////
 
