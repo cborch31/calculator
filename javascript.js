@@ -63,6 +63,8 @@ console.log(item);
 
 let array2 = [ ];
 let holder = [ ];
+let holder2 = [ ];
+let placeholder;
 
 // const pushArray = function(val){
 //     if (array2.length == 0 && val == 0 ||
@@ -99,7 +101,7 @@ const pushArray = function(val){
                     return 'can\'t divide by zero';    
                     } else { array2.push(val); 
                             console.log('zero pushed to array');
-                             break;
+                            break;
                     };
 
             case 1:
@@ -113,21 +115,43 @@ const pushArray = function(val){
             case 9:
                 if (array2.length == 0) {
                     array2.push(val);
+                    holder = [ ];
+                    holder.push(Number(array2.join('')));
+                    array2 = [ ];
+                    array2.push(holder[0]);
                     return 'number pushed to empty array';
                 }else if (array2[array2.length-1] == 0){
                     return 'can\'t add number after a zero';
-                    } else if (typeof(array2[array2.length-1]) =='number') {
+                    } else if (array2.length == 1) {
                         array2.push(val);
-                        return 'added number to array. Need to join!' //joining changes a number into a string. Might use Number('3') to convert back to number.
-                        };
+                        holder = [ ];
+                        holder.push(Number(array2.join('')));
+                        array2 = [ ];
+                        array2.push(holder[0]);
+                        return 'added number to array and joined in holder' //joining changes a number into a string. Might use Number('3') to convert back to number.
+                        } else if (typeof(array2[array2.length-1] == 'string' && array2[array2.length-1] !== '-')){
+                            holder2.push(val);
+                            placeholder = holder2.join('');
+                            holder2 = [ ];
+                            holder2.push(placeholder);
+                            array2.splice(2, 2, Number(holder2[0]));
+
+                            return 'added a second number!'
+                        }
             
             case '+':
             case '/':
             case '*':
                 if (array2.length == 0){
                     return 'can\'t add operator to empty string!';
-                } //start here next session!
-        }
+                } else if (array2.includes('+') ||
+                            array2.includes('/') ||
+                            array2.includes('*')){
+                    return 'can\'t input multiple +, /, *';
+                } else if (isNaN(val)){
+                    array2.splice(1, 0, val); break; }
+                    return 'nope';
+        } //next figure out minus!
 
 };
 
