@@ -99,7 +99,7 @@ const pushArray = function(val){
                     return 'array is empty and val is 0';
                 } else if (array2[array2.length-1] == '/') {
                     return 'can\'t divide by zero';    
-                    } else { array2.push(val); 
+                    } else { array2.push(val);
                             console.log('zero pushed to array');
                             break;
                     };
@@ -151,7 +151,21 @@ const pushArray = function(val){
                 } else if (isNaN(val)){
                     array2.splice(1, 0, val); break; }
                     return 'nope';
-        } //next figure out minus!
+
+            case '-':
+                if (array2.length == 0) {
+                    array2.push(val);
+                    return 'negative pushed to empty array';
+                } else if (array2.length == 1) {
+                    array2.push(val);
+                    return 'negative pushed to array slot 2';
+                } else if (array2.length == 2) {
+                    array2.push(val);
+                    return 'negative pushed to array slot 3';
+                } else if (array2.length == 3) {
+                    return 'cannot add negative to array';
+                }
+        }
 
 };
 
